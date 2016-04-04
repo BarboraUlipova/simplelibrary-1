@@ -54,3 +54,10 @@ function getInsertQuery($table, $insertArray) {
             implode("`,`", array_keys($insertArray)),
             implode("','", $insertArray));
 }
+
+function suggestAuthor() { 
+    $result = mysqli_query(getDb(), "SELECT `firstname`, `lastname` FROM `authors`");       
+    while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)){
+        echo "<option>". $row['firstname']. " ". $row['lastname']."</option>";
+    }  
+}
