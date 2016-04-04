@@ -23,6 +23,9 @@ function __($word) {
     if (isset($_GET['lang'])) {
         include("langs/".$_GET['lang'].".php");
     }
+    else {
+        include("langs/en.php");
+    }
 
     return isset($translations[$word]) ? $translations[$word] : $word;
 }
