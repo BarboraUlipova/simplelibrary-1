@@ -2,11 +2,12 @@
 
 require("functions.php");
 
-if (isset($_POST['publication']) && count($_POST['publication'])) {
+$tablename = key($_POST);
+if (isset($_POST[$tablename]) && count($_POST[$tablename])) {
     $db = getDb();
-    validate($_POST['publication'], $db);
+    validate($_POST[$tablename], $db);
 
-    $query = getInsertQuery("publications", $_POST['publication']);
+    $query = getInsertQuery($tablename."s", $_POST[$tablename]);
     if (mysqli_query($db, $query)) {
         $location = $_SERVER["HTTP_REFERER"];
         // $location.= (strpos($_SERVER["HTTP_REFERER"], "success=1") === false) ? "&success=1" : "";
@@ -24,6 +25,9 @@ function validate(&$postParams, &$db) {
         switch ($field) {
             case 'isbn':
             case 'title':
+            case 'firstname':
+            case 'lastname':
+            case 'nationality':
                 if (filter_var($value, FILTER_SANITIZE_STRING) === false) {
                     $error = "$value musi byt string";
                     break 2;
