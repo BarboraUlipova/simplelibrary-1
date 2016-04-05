@@ -52,19 +52,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3">Vyberte autora </label>
+                <label class="control-label col-sm-3"><?php _e("PUBLICATION_SELECT_AUTHOR"); ?></label>
                 <div class="col-sm-6">
                     <select name="author"><option><?php suggestAuthor(); ?></option></select>
                 </div>
             </div>
-<!-- <select name="owner">
-<?php 
-$sql = mysql_query("SELECT username FROM users");
-while ($row = mysql_fetch_array($sql)){
-echo "<option value=\"owner1\">" . $row['username'] . "</option>";
-}
-?>
-</select> -->
+
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit" class="btn btn-default"><?php _e("ALL_TABLES_ADD_SUBMIT"); ?></button>

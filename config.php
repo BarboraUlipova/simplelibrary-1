@@ -8,5 +8,6 @@ $cfg = [
     "dbHost" => "localhost",
     "dbUser" => "root",
     "dbPass" => "",
-    "dbBase" => "simplelibrary"
+    "dbBase" => "simplelibrary",
+    "default_lang" => "cs",
 ];
